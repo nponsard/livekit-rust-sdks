@@ -32,7 +32,7 @@ pub enum TwirpError {
     Request(#[from] reqwest::Error),
     #[cfg(any(feature = "services-async", feature = "services-dispatcher"))]
     #[error("failed to execute the request: {0}")]
-    Request(#[from] std::io::Error),
+    Io(#[from] std::io::Error),
     #[error("twirp error: {0}")]
     Twirp(TwirpErrorCode),
     #[error("url error: {0}")]

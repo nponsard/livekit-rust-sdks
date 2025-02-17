@@ -5,10 +5,10 @@ mod tokio {
 
     #[cfg(feature = "services-tokio")]
     pub use reqwest::Client;
+    #[cfg(any(feature = "services-tokio", feature = "signal-client-tokio"))]
+    pub use tokio::*;
 }
 
-#[cfg(any(feature = "services-tokio", feature = "signal-client-tokio"))]
-pub use tokio::*;
 
 #[cfg(all(
     any(feature = "signal-client-dispatcher", feature = "signal-client-async"),
@@ -131,9 +131,9 @@ mod dispatcher {
 
     #[cfg(feature = "services-dispatcher")]
     pub use services::*;
+    
 }
 
-#[cfg(feature = "signal-client-dispatcher")]
 pub use dispatcher::*;
 
 #[cfg(any(feature = "signal-client-async", feature = "services-async"))]

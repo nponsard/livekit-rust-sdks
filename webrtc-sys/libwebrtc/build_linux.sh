@@ -94,7 +94,7 @@ cd src/third_party/ffmpeg && ./configure --arch=riscv64 --disable-asm && make co
 #   src/build/linux/debian_sid_riscv64-sysroot \
 #   https://snapshot.debian.org/archive/debian/20240907T023014Z/
 
-sudo chown 1000:1000 -R src/build/linux/debian_sid_riscv64-sysroot
+# sudo chown 1000:1000 -R src/build/linux/debian_sid_riscv64-sysroot
 else
 python3 "./src/build/linux/sysroot_scripts/install-sysroot.py" --arch="$arch"
 fi
